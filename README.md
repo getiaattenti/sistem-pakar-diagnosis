@@ -1,1 +1,3 @@
 # sistem-pakar-diagnosis
+
+CHECK
