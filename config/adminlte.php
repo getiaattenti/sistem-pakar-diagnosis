@@ -247,8 +247,8 @@ return [
         //     'can'  => 'manage-blog',
         // ],
         [
-            'text'        => 'pages',
-            'url'         => 'pages',
+            'text'        => 'Gejala',
+            'url'         => 'symptoms',
             'icon'        => 'far fa-fw fa-file',
             // 'label'       => 4,
             // 'label_color' => 'success',
@@ -356,7 +356,7 @@ return [
 
     'plugins' => [
         'Datatables' => [
-            'active' => false,
+            'active' => true,
             'files' => [
                 [
                     'type' => 'js',
