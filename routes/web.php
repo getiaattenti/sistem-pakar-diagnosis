@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\SymptomsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,8 +17,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/symptoms', function () {
+    return view('symptoms.index');
+});
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Route::resource('symptoms', SymptomsController::class);

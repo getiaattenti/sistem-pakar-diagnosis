@@ -1,15 +1,7 @@
-@extends('adminlte::page')
-
-@section('title', 'Dashboard')
-
-@section('content_header')
-    <h1>Dashboard</h1>
-@stop
+@extends('layouts.app')
 
 @section('content')
-    <p>Welcome to this beautiful admin panel.</p>
-@stop
-
-@section('js')
-    <script> console.log('Hi!'); </script>
-@stop
+    <div class="container-fluid">
+        <h1 class="text-black-50">You are logged in!</h1>
+    </div>
+@endsection
