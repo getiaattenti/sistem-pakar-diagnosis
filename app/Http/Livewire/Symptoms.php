@@ -33,7 +33,7 @@ class Symptoms extends Component
   
         Symptom::create($validatedSymptom); 
 
-        $this->dispatchBrowserEvent('close-modal');
+        $this->resetInput();
     }
 
     public function edit($id)

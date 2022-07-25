@@ -16,7 +16,7 @@
             <h3 class="card-title">Penyakit</h3>
             </div>
             <div class="card-body">
-                {{-- @livewire('disease') --}}
+                @livewire('diseases')
             </div>
             <div class="card-footer">
             </div>

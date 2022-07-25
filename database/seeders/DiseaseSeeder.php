@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Disease;
 
 class DiseaseSeeder extends Seeder
 {
@@ -14,6 +15,9 @@ class DiseaseSeeder extends Seeder
      */
     public function run()
     {
-        //
+        Disease::factory()->create([
+            'name' => 'Test User',
+            'email' => 'test@example.com',
+        ]);
     }
 }

@@ -12,7 +12,7 @@ class Diseases extends Component
 
     public function render()
     {
-        $this->symptoms = Disease::all();
+        $this->diseases = Disease::all();
         $this->index = 0;
         return view('livewire.disease');
     }
@@ -31,8 +31,7 @@ class Diseases extends Component
         ]);
   
         Disease::create($validatedSymptom); 
-
-        $this->dispatchBrowserEvent('close-modal');
+        $this->resetInput();
     }
 
     public function edit($id)
