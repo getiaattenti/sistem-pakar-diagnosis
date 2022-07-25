@@ -3,20 +3,18 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
-use App\Models\Symptom;
+use App\Models\Disease;
 
-
-class Symptoms extends Component
+class Diseases extends Component
 {
-
-    public $symptoms, $selected_id, $name, $code;
+    public $diseases, $selected_id, $name, $code, $description;
     public $updateMode = false;
 
     public function render()
     {
-        $this->symptoms = Symptom::all();
+        $this->symptoms = Disease::all();
         $this->index = 0;
-        return view('livewire.symptoms');
+        return view('livewire.disease');
     }
 
     public function create() {
@@ -29,22 +27,22 @@ class Symptoms extends Component
         $validatedSymptom = $this->validate([
             'code' => 'required',
             'name' => 'required',
+            'description' => 'required'
         ]);
   
-        Symptom::create($validatedSymptom); 
+        Disease::create($validatedSymptom); 
 
         $this->dispatchBrowserEvent('close-modal');
     }
 
     public function edit($id)
     {
-        $record = Symptom::findOrFail($id);
+        $record = Disease::findOrFail($id);
         $this->selected_id = $id;
         $this->name = $record->name;
         $this->code = $record->code;
+        $this->description = $record->description;
         $this->updateMode = true;
-
-        $this->dispatchBrowserEvent('symptoms-modal-update');
     }
 
     public function update()
@@ -55,10 +53,11 @@ class Symptoms extends Component
             'code' => 'required'
         ]);
         if ($this->selected_id) {
-            $record = Symptom::find($this->selected_id);
+            $record = Disease::find($this->selected_id);
             $record->update([
                 'name' => $this->name,
-                'code' => $this->code
+                'code' => $this->code,
+                'description' => 'required'
             ]);
             $this->resetInput();
             $this->updateMode = false;
@@ -67,7 +66,7 @@ class Symptoms extends Component
 
     public function delete($id) {
         if ($id) {
-            $record = Symptom::where('id', $id);
+            $record = Disease::where('id', $id);
             $record->delete();
         }
     }
@@ -76,5 +75,6 @@ class Symptoms extends Component
     {
         $this->name = null;
         $this->code = null;
+        $this->description = null;
     }
 }

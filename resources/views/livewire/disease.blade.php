@@ -1,9 +1,5 @@
 <div>
-    @if ($updateMode)
-        @include('symptoms.update')
-    @else
-        @include('symptoms.create')
-    @endif
+
 
     <table class="table table-bordered mt-5">
         <thead>
@@ -11,6 +7,7 @@
                 <th>No</th>
                 <th>Kode</th>
                 <th>Nama</th>
+                <th>Deskripsi</th>
                 <th width="150px">Aksi</th>
             </tr>
         </thead>

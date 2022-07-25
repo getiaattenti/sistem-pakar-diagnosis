@@ -11,10 +11,17 @@
         <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" role="menu">
             <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="symptoms" class="nav-link">
                 <i class="nav-icon fas fa-id-card-alt"></i>
                 <p>
-                    Dashboard
+                    Gejala
+                </p>
+            </a>
+
+            <a href="diseases" class="nav-link">
+                <i class="nav-icon fas fa-id-card-alt"></i>
+                <p>
+                    Penyakit
                 </p>
             </a>
         </ul>

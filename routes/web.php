@@ -21,6 +21,10 @@ Route::get('/symptoms', function () {
     return view('symptoms.index');
 });
 
+Route::get('/diseases', function () {
+    return view('disease.index');
+});
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
