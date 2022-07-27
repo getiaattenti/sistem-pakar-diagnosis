@@ -32,3 +32,22 @@
         </tbody>
     </table>
 </div>
+
+@push('scripts')
+    <script>
+        $(document).ready(function () {
+            $('#select2-dropdown').select2();
+            $('#select2-dropdown').on('change', function (e) {
+                let data = $(this).val();
+                @this.set('diseaseHasSymptoms', data);
+            });
+            window.addEventListener('reset-form', event => {
+                $('#select2-dropdown').val('').change();
+            })
+
+            window.addEventListener('update-form', event => {
+                $('#select2-dropdown').val(event.detail.diseaseHasSymptoms).change();
+            })
+        });  
+    </script>
+@endpush

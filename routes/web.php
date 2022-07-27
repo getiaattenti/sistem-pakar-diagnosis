@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Livewire\Select2;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,5 +27,7 @@ Route::get('/diseases', function () {
 });
 
 Auth::routes();
+
+Route::get('/select2', Select2::class);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
