@@ -26,6 +26,8 @@
       <p class="login-box-msg">Login untuk <b>Pasien</b> dan <b>Dokter</b></p>
 
       <form method="post" action="{{ url('/login') }}">
+        @csrf
+        
         <div class="input-group mb-3">
           <input type="email"
             name="email"
