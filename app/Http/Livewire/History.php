@@ -14,8 +14,13 @@ class History extends Component
     public function render()
     {
         $this->index = 0;
-        $this->diagnosis = Diagnose::all();
 
+        if (Auth::user()->role == "ADMIN") {
+            $this->diagnosis = Diagnose::all();
+        } else {
+            $this->diagnosis = Diagnose::where('user_id','=',Auth::user()->id);
+        }
+        
         foreach ($this->diagnosis as $diagnosa) {
             $disease = Disease::find($diagnosa->out_disease_id);
             $diagnosa->out_disease = $disease;

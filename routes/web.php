@@ -20,9 +20,8 @@ use App\Http\Livewire\Dashboard;
 Auth::routes();
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('/dashboard', function () {
-        return view('welcome');
-    });
+    Route::get('/', Dashboard::class);
+    Route::get('/dashboard', Dashboard::class);
     
     Route::get('/symptoms', function () {
         return view('symptoms.index');

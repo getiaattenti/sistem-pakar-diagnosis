@@ -18,6 +18,8 @@
                     </p>
                 </a>
             </li>
+
+            @if ( Auth::user()->role == "ADMIN")
             <li class="nav-item">
                 <a href="/symptoms" class="nav-link">
                     <i class="nav-icon fas fa-id-card-alt"></i>
@@ -42,6 +44,7 @@
                     </p>
                 </a>
             </li>
+            @endif
             <li class="nav-item">
                 <a href="/diagnostic-history" class="nav-link">
                     <i class="nav-icon fas fa-id-card-alt"></i>

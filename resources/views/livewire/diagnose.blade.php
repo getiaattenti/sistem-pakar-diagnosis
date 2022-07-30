@@ -1,4 +1,9 @@
 <div>
+    <div class="row">
+        <div class="col">
+            
+        </div>
+    </div>
     @foreach($symptoms as $symptom)
     <div class="mt-1">
         <label class="inline-flex items-center">

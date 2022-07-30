@@ -90,6 +90,10 @@
             </div>
           </div>
         </div>
+        <input type="hidden"
+                    name="role"
+                    class="form-control @error('role') is-invalid @enderror"
+                    value="USER" >
         <div class="row">
           <div class="col-8">
           </div>

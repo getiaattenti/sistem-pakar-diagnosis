@@ -27,7 +27,7 @@
 
       <form method="post" action="{{ url('/login') }}">
         @csrf
-        
+
         <div class="input-group mb-3">
           <input type="email"
             name="email"
@@ -47,7 +47,7 @@
           <input type="password"
             name="password"
             placeholder="Password"
-            class="form-control @error('password') is-invalid @enderror">>
+            class="form-control @error('password') is-invalid @enderror">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
