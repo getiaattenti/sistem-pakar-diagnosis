@@ -11,6 +11,14 @@
         <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" role="menu">
             <li class="nav-item">
+                <a href="/dashboard" class="nav-link">
+                    <i class="nav-icon fas fa-id-card-alt"></i>
+                    <p>
+                        Dashboard
+                    </p>
+                </a>
+            </li>
+            <li class="nav-item">
                 <a href="/symptoms" class="nav-link">
                     <i class="nav-icon fas fa-id-card-alt"></i>
                     <p>
@@ -31,6 +39,14 @@
                     <i class="nav-icon fas fa-id-card-alt"></i>
                     <p>
                         Diagnosa
+                    </p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="/diagnostic-history" class="nav-link">
+                    <i class="nav-icon fas fa-id-card-alt"></i>
+                    <p>
+                        Riwayat diagnosa
                     </p>
                 </a>
             </li>

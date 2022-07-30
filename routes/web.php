@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\Diagnose;
 use App\Http\Livewire\Result;
+use App\Http\Livewire\History;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +30,10 @@ Route::get('/diseases', function () {
 
 Route::get('/diagnoses', function () {
     return view('diagnose.index');
+});
+
+Route::get('/diagnostic-history',function () {
+    return view('diagnose.history');
 });
 
 Route::get('/result/{id}', Result::class );

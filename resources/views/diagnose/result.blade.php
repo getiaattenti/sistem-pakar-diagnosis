@@ -1,5 +1,3 @@
-@extends('app')
-
 @section('content')
     <section class="content-header">
         <div class="container-fluid">
@@ -10,7 +8,7 @@
     </section>
 
     <section class="content">
-        <div class="card">
+        <div class="card card-info">
             <div class="card-header">
             <h3 class="card-title">Hasil Penyakit</h3>
             </div>
@@ -40,7 +38,7 @@
                 </div>
             </div>
         </div>
-        <div class="card">
+        <div class="card card-success">
             <div class="card-header">
               <h3 class="card-title">Saran</h3>
             </div>
