@@ -56,8 +56,9 @@ class Diseases extends Component
 
     public function edit($id)
     {
+        $this->resetInput();
+        
         $record = Disease::findOrFail($id);
-
         
         $datas = DiseaseHasSymptom::where('disease_id', '=', $id)->get();
         foreach ($datas as $data) {
@@ -82,13 +83,34 @@ class Diseases extends Component
         ]);
         if ($this->selected_id) {
             $record = Disease::find($this->selected_id);
-            $record->update([
-                'name' => $this->name,
-                'code' => $this->code,
-                'description' => 'required'
-            ]);
-            $this->resetInput();
-            $this->updateMode = false;
+            $datas = [];
+            foreach ($this->diseaseHasSymptoms as $symptomId) {
+                $data = new DiseaseHasSymptom;
+                $data->disease_id = $record->id;
+                $data->symptoms_id = $symptomId;
+                $datas[] = $data->attributesToArray();
+            }
+
+            try {
+                DB::beginTransaction();
+                DiseaseHasSymptom::where('disease_id', $record->id)->delete();
+
+                $record->update([
+                    'name' => $this->name,
+                    'code' => $this->code,
+                    'description' => 'required'
+                ]);
+                DiseaseHasSymptom::insert($datas);
+                DB::commit();
+
+                $this->resetInput();
+                $this->updateMode = false;
+            } catch(\Exception $exp) {
+                dd($exp);
+                DB::rollBack();
+            } 
+
+            
         }
     }
 
