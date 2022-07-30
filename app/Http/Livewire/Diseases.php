@@ -12,6 +12,7 @@ class Diseases extends Component
 {
     public $diseases, $selected_id, $name, $code, $description;
     public $updateMode = false;
+    public $suggestion;
     public $diseaseHasSymptoms = [];
     public $symptoms;
 
@@ -35,7 +36,8 @@ class Diseases extends Component
             $validatedSymptom = $this->validate([
                 'code' => 'required',
                 'name' => 'required',
-                'description' => 'required'
+                'description' => 'required',
+                'suggestion' => 'required'
             ]);
     
             $disease = Disease::create($validatedSymptom);
@@ -71,6 +73,7 @@ class Diseases extends Component
         $this->name = $record->name;
         $this->code = $record->code;
         $this->description = $record->description;
+        $this->suggestion = $record->suggestion;
         $this->updateMode = true;
     }
 
@@ -79,7 +82,8 @@ class Diseases extends Component
         $this->validate([
             'selected_id' => 'required|numeric',
             'name' => 'required',
-            'code' => 'required'
+            'code' => 'required',
+            'suggestion' => 'required'
         ]);
         if ($this->selected_id) {
             $record = Disease::find($this->selected_id);
@@ -98,7 +102,8 @@ class Diseases extends Component
                 $record->update([
                     'name' => $this->name,
                     'code' => $this->code,
-                    'description' => 'required'
+                    'description' => $this->description,
+                    'suggestion' => $this->suggestion
                 ]);
                 DiseaseHasSymptom::insert($datas);
                 DB::commit();
@@ -129,6 +134,7 @@ class Diseases extends Component
         $this->name = null;
         $this->code = null;
         $this->description = null;
+        $this->suggestion = null;
         $this->diseaseHasSymptoms = [];
     }
 }

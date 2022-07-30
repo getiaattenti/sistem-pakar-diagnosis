@@ -27,7 +27,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="/diagnose" class="nav-link">
+                <a href="/diagnoses" class="nav-link">
                     <i class="nav-icon fas fa-id-card-alt"></i>
                     <p>
                         Diagnosa

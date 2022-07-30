@@ -1,5 +1,3 @@
-
-
 <div>
     @foreach($symptoms as $symptom)
     <div class="mt-1">
@@ -9,6 +7,6 @@
         </label>
     </div>
     @endforeach
-    <button wire:click="diagnose" id="lalala" class="btn btn-success">Save</button>
+    <button wire:click="diagnose" class="btn btn-success">Save</button>
 </div>  
 

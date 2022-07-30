@@ -13,6 +13,7 @@
                 <th>Kode</th>
                 <th>Nama</th>
                 <th>Deskripsi</th>
+                <th>Saran</th>
                 <th width="150px">Aksi</th>
             </tr>
         </thead>
@@ -22,7 +23,8 @@
                 <td>{{ ++$index }}</td>
                 <td>{{ $disease->code }}</td>
                 <td>{{ $disease->name }}</td>
-                <td>{{ $disease->name }}</td>
+                <td>{{ $disease->description }}</td>
+                <td>{{ $disease->suggestion }}</td>
                 <td>
                     <button wire:click="edit({{ $disease->id }})" class="btn btn-primary btn-sm">Edit</button>
                     <button wire:click="delete({{ $disease->id }})" class="btn btn-danger btn-sm">Delete</button>

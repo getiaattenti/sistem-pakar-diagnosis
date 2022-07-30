@@ -15,7 +15,7 @@
             <h3 class="card-title">Diagnosa penyakit</h3>
             </div>
             <div class="card-body">
-                @livewire('diagnose')
+                @livewire('diagnoses')
             </div>
             <div class="card-footer">
             </div>

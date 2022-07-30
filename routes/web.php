@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\Diagnose;
+use App\Http\Livewire\Result;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,12 +27,12 @@ Route::get('/diseases', function () {
     return view('disease.index');
 });
 
-Route::get('/diagnose', function () {
+Route::get('/diagnoses', function () {
     return view('diagnose.index');
 });
 
+Route::get('/result/{id}', Result::class );
+
 Auth::routes();
-
-
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -5,11 +5,16 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use App\Models\Symptom;
 use App\Models\DiseaseHasSymptom;
-class Diagnose extends Component
+use App\Models\Disease;
+use App\Models\Diagnose;
+
+class Diagnoses extends Component
 {
 
     public $symptoms;
     public $selectedtypes = [];
+    public $diagnose;
+    public $namaPasien, $namaPenyakit, $detailPenyakit, $saranPenyakit;
     
     public function render()
     {
@@ -30,7 +35,15 @@ class Diagnose extends Component
             $percentages[$value] = $count / $total;
         }
         $maxs = array_keys($percentages, max($percentages));
-        
-        dd($maxs[0]);
+
+        $data = new Diagnose;
+        $data->user_id = 1;
+        $data->user = "Nama";
+        $data->diseases = implode(",",$disease);
+        $data->symptoms = implode(",",$this->selectedtypes);
+        $data->out_disease_id = $maxs[0];
+        $diagnose = Diagnose::create($data->attributesToArray());
+
+        return redirect()->to('/result/'.$diagnose->id);
     }
 }
