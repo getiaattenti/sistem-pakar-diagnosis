@@ -1,8 +1,12 @@
 <div>
-    <div class="row">
-        <div class="col">
-            
-        </div>
+    <div class="form-group" wire:ignore>
+        <label for="exampleFormControlInput2">User :</label>
+        <select class="form-control" id="select2-dropdown" wire:model="user">
+            <option value="">Pilih User</option>
+            @foreach($users as $user)
+                <option value="{{ $user }}">{{ $user->name }}</option>
+            @endforeach
+        </select>
     </div>
     @foreach($symptoms as $symptom)
     <div class="mt-1">
@@ -14,4 +18,14 @@
     @endforeach
     <button wire:click="diagnose" class="btn btn-success">Save</button>
 </div>  
-
+@push('scripts')
+    <script>
+        $(document).ready(function () {
+            $('#select2-dropdown').select2();
+            $('#select2-dropdown').on('change', function (e) {
+                let data = $(this).val();
+                @this.set('user', data);
+            });
+        });  
+    </script>
+@endpush

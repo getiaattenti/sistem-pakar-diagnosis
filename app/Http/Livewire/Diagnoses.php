@@ -7,6 +7,7 @@ use App\Models\Symptom;
 use App\Models\DiseaseHasSymptom;
 use App\Models\Disease;
 use App\Models\Diagnose;
+use App\Models\User;
 
 class Diagnoses extends Component
 {
@@ -15,10 +16,12 @@ class Diagnoses extends Component
     public $selectedtypes = [];
     public $diagnose;
     public $namaPasien, $namaPenyakit, $detailPenyakit, $saranPenyakit;
+    public $users, $user;
     
     public function render()
     {
         $this->symptoms = Symptom::all();
+        $this->users = User::where('role','=','USER')->get();
         return view('livewire.diagnose');
     }
 
@@ -36,9 +39,11 @@ class Diagnoses extends Component
         }
         $maxs = array_keys($percentages, max($percentages));
 
+        $user =  json_decode($this->user);
+
         $data = new Diagnose;
-        $data->user_id = 1;
-        $data->user = "Nama";
+        $data->user_id = $user->id;
+        $data->user = $user->name;
         $data->diseases = implode(",",$disease);
         $data->symptoms = implode(",",$this->selectedtypes);
         $data->out_disease_id = $maxs[0];

@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use App\Models\Diagnose;
 use App\Models\Disease;
+use Illuminate\Http\Request;
 
 class History extends Component
 {
@@ -15,10 +16,10 @@ class History extends Component
     {
         $this->index = 0;
 
-        if (Auth::user()->role == "ADMIN") {
+        if (request()->user()->role == "ADMIN") {
             $this->diagnosis = Diagnose::all();
-        } else {
-            $this->diagnosis = Diagnose::where('user_id','=',Auth::user()->id);
+        } else if (request()->user()->role == "USER") {
+            $this->diagnosis = Diagnose::where('user_id','=',request()->user()->id)->get();
         }
         
         foreach ($this->diagnosis as $diagnosa) {
