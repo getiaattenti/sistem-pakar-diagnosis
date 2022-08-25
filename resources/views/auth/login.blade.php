@@ -20,7 +20,7 @@
   <!-- /.login-logo -->
   <div class="card card-outline card-primary">
     <div class="card-header text-center">
-      <a href="{{ asset('/') }}index2.html" class="h1"><b>Sistem </b>Pakar</a>
+      <a href="#" class="h1"><b>Sistem </b>Pakar</a>
     </div>
     <div class="card-body">
       <p class="login-box-msg">Login untuk <b>Pasien</b> dan <b>Dokter</b></p>

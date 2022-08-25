@@ -47,6 +47,7 @@ class Diagnoses extends Component
         $data->diseases = implode(",",$disease);
         $data->symptoms = implode(",",$this->selectedtypes);
         $data->out_disease_id = $maxs[0];
+        $data->percentages = max($percentages);
         $diagnose = Diagnose::create($data->attributesToArray());
 
         return redirect()->to('/result/'.$diagnose->id);

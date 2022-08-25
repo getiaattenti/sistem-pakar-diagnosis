@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('user');
             $table->text('symptoms');
             $table->integer('out_disease_id');
+            $table->float('percentages');
             $table->timestamps();
         });
     }

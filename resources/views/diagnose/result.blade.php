@@ -27,7 +27,7 @@
                     </div>
                     <div class="col">
                         <h3>
-                            {{ $disease->name }}
+                            {{ $disease->name }} / <span style="color:blue;">{{ ($diagnose->percentages)*100 }} % ({{ $diagnose->percentages }})</span>
                         </h3>
                     </div>
                 </div>
